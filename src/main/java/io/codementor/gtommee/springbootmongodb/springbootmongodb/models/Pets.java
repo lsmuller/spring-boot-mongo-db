@@ -1,8 +1,10 @@
-package io.codementor.gtommee.models;
+package io.codementor.gtommee.springbootmongodb.models;
 
-import com.sun.corba.se.spi.ior.ObjectId;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "pets")
 public class Pets {
 
 	@Id

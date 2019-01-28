@@ -1,4 +1,4 @@
-package io.codementor.gtommee.springbootmongodb;
+package io.codementor.gtommee.springbootmongodb.springbootmongodb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
