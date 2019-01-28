@@ -6,6 +6,8 @@ import javax.validation.Valid;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,14 +27,14 @@ public class PetsController {
 	private PetsRepository repository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public List<Pets> getAllPets() {
-		return repository.findAll();
+	public ResponseEntity<List<Pets>> getAllPets() {
+		return new ResponseEntity<>(repository.findAll(), HttpStatus.ACCEPTED);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Pets getPetById(@PathVariable("id")
+	public ResponseEntity<Pets> getPetById(@PathVariable("id")
 			ObjectId id) {
-		return repository.findBy_id(id);
+		return new ResponseEntity<>(repository.findBy_id(id), HttpStatus.ACCEPTED);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
